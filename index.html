@@ -24,6 +24,12 @@
   <script>
     function preview(){document.getElementById('preview').innerHTML='<iframe srcdoc="<h1>Test Book</h1>"></iframe>'}
   </script>
-  <script src="sw.js"></script>
+ <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js');
+    });
+  }
+</script>
 </body>
 </html>
